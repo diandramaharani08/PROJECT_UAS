@@ -1,0 +1,21 @@
+*   [33med441b2[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mdevelop[m[33m, [m[1;31morigin/develop[m[33m)[m Merge pull request #11 from diandramaharani08/fitur/hello-diandra
+[31m|[m[32m\[m  
+[31m|[m * [33md1434bb[m[33m ([m[1;31morigin/fitur/hello-diandra[m[33m)[m diandra sudah coba hello console
+[31m|[m[31m/[m  
+*   [33m759a460[m Merge pull request #9 from diandramaharani08/fitur/hello-Yuvanez
+[33m|[m[34m\[m  
+[33m|[m *   [33m5b122f4[m[33m ([m[1;31morigin/fitur/hello-Yuvanez[m[33m)[m Merge branch 'develop' into fitur/hello-Yuvanez
+[33m|[m [35m|[m[33m\[m  
+[33m|[m [35m|[m[33m/[m  
+[33m|[m[33m/[m[35m|[m   
+* [35m|[m   [33m6a2e1d9[m Merge pull request #8 from diandramaharani08/feature/readme
+[1;31m|[m[1;32m\[m [35m\[m  
+[1;31m|[m * [35m\[m   [33me658c94[m[33m ([m[1;31morigin/feature/readme[m[33m)[m Merge branch 'develop' into feature/readme
+[1;31m|[m [1;33m|[m[1;31m\[m [35m\[m  
+[1;31m|[m [1;33m|[m[1;31m/[m [35m/[m  
+[1;31m|[m[1;31m/[m[1;33m|[m [35m|[m   
+* [1;33m|[m [35m|[m   [33m5d98052[m Merge pull request #1 from diandramaharani08/feature/-menu-utama
+[1;35m|[m[1;36m\[m [1;33m\[m [35m\[m  
+[1;35m|[m [1;36m|[m * [35m|[m [33mf56b506[m docs : Diandra sudah melengkapi daftar anggota dan tabel pembagian tugas
+[1;35m|[m [1;36m|[m * [35m|[m [33m1321f71[m hello console by Yuvanez
+[1;35m|[m [1;36m|[m * [35m|[m [33m64fcd25[m chore: setup awal project dan hello console
