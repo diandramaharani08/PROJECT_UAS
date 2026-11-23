@@ -1,3 +1,3 @@
-import * as readlinesync from "readline-sync";
-
-console.log("selamat datang di hotel")
+console.log("Hello, Console");
+console.log("Hello, console");
+console.log("Hello, Console");
