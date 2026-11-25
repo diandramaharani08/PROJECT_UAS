@@ -1,10 +1,10 @@
 {
-  "name": "paw",
+  "name": "sistem-pemesanan-kamar-hotel",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Sistem yang digunakan untuk mempermudah pemesanan kamar hotel",
+  "main": "src/index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "ts-node src/index.ts"
   },
   "keywords": [],
   "author": "",
