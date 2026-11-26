@@ -257,3 +257,44 @@ function tampilkanNota(r: Reservasi): void {
     console.log("____________________________________");
     console.log("Total Pesanan      : " + formatRupiah(rincian.totalBayar));
 }
+
+// Program utama (kerangka menu)
+// Menu utama diulang terus sampai pengguna memilih keluar
+function main(): void {
+    let berjalan: boolean = true;
+    while (berjalan) {
+        tampilkanMenu();
+        const pilihan: string = tanya("Pilih menu (0-6): ");
+        // Menjalankan fitur sesuai pilihan menu
+        switch (pilihan) {
+            case "1":
+                console.log("Fitur tambah reservasi belum tersedia.");
+                break;
+            case "2":
+                console.log("Fitur lihat semua reservasi belum tersedia.");
+                break;
+            case "3":
+                console.log("Fitur lihat detail reservasi belum tersedia.");
+                break;
+            case "4":
+                console.log("Fitur ubah reservasi belum tersedia.");
+                break;
+            case "5":
+                console.log("Fitur hapus reservasi belum tersedia.");
+                break;
+            case "6":
+                console.log("Fitur cari reservasi belum tersedia.");
+                break;
+            case "0":
+                berjalan = false; // menghentikan perulangan menu
+                console.log("\n===== TERIMAKASIH =====");
+                break;
+            default: // Muncul jika menu yang dimasukkan tidak valid
+                console.log("Menu tidak valid! Masukkan angka 0 sampai 6.");
+                break;
+        }
+    }
+}
+
+// Menjalankan program
+main();
