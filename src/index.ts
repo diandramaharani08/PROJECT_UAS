@@ -110,3 +110,59 @@ function hitungPotonganHari(jumlahHari: number): number {
         return 300000;
     }
 }
+
+// Fungsi yang mengembalikan nilai hasil hitung seluruh biaya satu reservasi
+function hitungRincian(r: Reservasi): Rincian {
+    // Mengambil data kamar, fasilitas, paket makan, dan layanan sesuai kode
+    const kamar: Pilihan = cariPilihan(DAFTAR_KAMAR, r.kodeKamar);
+    const fasilitas: Pilihan = cariPilihan(DAFTAR_FASILITAS, r.kodeFasilitas);
+    const paket: Pilihan = cariPilihan(DAFTAR_PAKET, r.kodePaket);
+    const layanan: Pilihan = cariPilihan(DAFTAR_LAYANAN, r.kodeLayanan);
+
+    // Menghitung harga kamar: harga per malam dikali jumlah hari
+    let hargaKamar: number = kamar.harga * r.jumlahHari;
+    hargaKamar -= hitungPotonganHari(r.jumlahHari); // dikurangi potongan hari
+    hargaKamar += fasilitas.harga;                  // ditambah biaya fasilitas bintang
+    hargaKamar += paket.harga + layanan.harga;      // ditambah paket & layanan
+    // Ditambah biaya elektronik jika tamu membawa alat elektronik
+    if (r.bawaElektronik) {
+        hargaKamar += HARGA_ELEKTRONIK;
+    }
+
+    // Menentukan diskon berdasarkan total harga kamar
+    let diskon: number;
+    if (hargaKamar < 1000000) {
+        diskon = 0;
+    } else if (hargaKamar >= 1000000 && hargaKamar < 5000000) {
+        diskon = 15;
+    } else {
+        diskon = 25;
+    }
+
+    // Menghitung total harga setelah diskon
+    let totalHarga: number = hargaKamar;
+    totalHarga *= (100 - diskon) / 100; // operator compound perkalian
+
+    // Biaya admin diambil dari daftar metode pembayaran
+    const admin: number = cariPilihan(DAFTAR_BAYAR, r.kodeBayar).harga;
+
+    // Potongan khusus pembayaran kartu debit (nested 3 tingkat)
+    let potongan: number = 0;
+    if (r.kodeBayar === 1) {                 // tingkat 1: bayar pakai kartu debit
+        if (totalHarga >= 500000) {          // tingkat 2: memenuhi syarat minimal
+            if (totalHarga <= 1000000) {     // tingkat 3: menentukan besar potongan
+                potongan = 100000;
+            } else {
+                potongan = 150000;
+            }
+        }
+    }
+
+    // Menghitung total bayar akhir
+    let totalBayar: number = totalHarga;
+    totalBayar -= potongan; // dikurangi potongan kartu debit
+    totalBayar += admin;    // ditambah biaya admin
+
+    // Mengembalikan seluruh hasil perhitungan
+    return { tipeKamar: kamar.nama, hargaKamar, diskon, potongan, admin, totalBayar };
+}
