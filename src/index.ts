@@ -209,3 +209,24 @@ function inputYT(pertanyaan: string): boolean {
         console.log("Jawab dengan Y atau T saja!");
     }
 }
+
+// Fungsi tampilan
+// Fungsi tanpa parameter dan tanpa return (void) untuk menampilkan menu utama
+function tampilkanMenu(): void {
+    console.log("\n========== MENU RESERVASI HOTEL ==========");
+    console.log("1. Tambah reservasi");
+    console.log("2. Lihat semua reservasi");
+    console.log("3. Lihat detail reservasi");
+    console.log("4. Ubah reservasi");
+    console.log("5. Hapus reservasi");
+    console.log("6. Cari reservasi");
+    console.log("0. Keluar");
+}
+
+// Fungsi void untuk menampilkan daftar pilihan memakai forEach
+function tampilkanPilihan(judul: string, daftar: Pilihan[]): void {
+    console.log(`\n===== ${judul} =====`);
+    daftar.forEach((p) => {
+        console.log(`${p.kode}. ${p.nama} (${formatRupiah(p.harga)})`);
+    });
+}
