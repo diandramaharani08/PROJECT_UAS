@@ -230,3 +230,30 @@ function tampilkanPilihan(judul: string, daftar: Pilihan[]): void {
         console.log(`${p.kode}. ${p.nama} (${formatRupiah(p.harga)})`);
     });
 }
+
+// Fungsi void untuk menampilkan nota lengkap satu reservasi
+function tampilkanNota(r: Reservasi): void {
+    const rincian: Rincian = hitungRincian(r);
+    // Mengubah jumlah hari menjadi minggu dan sisa hari (memakai / dan %)
+    const minggu: number = Math.floor(r.jumlahHari / 7);
+    const sisaHari: number = r.jumlahHari % 7;
+
+    console.log("\n=========== NOTA PESANAN ===========");
+    console.log("ID Reservasi       : " + r.id);
+    console.log("Nama Tamu          : " + r.namaTamu);
+    console.log("Jumlah Tamu        : " + r.jumlahTamu);
+    console.log("Tipe Kamar         : " + rincian.tipeKamar);
+    console.log("Fasilitas          : " + cariPilihan(DAFTAR_FASILITAS, r.kodeFasilitas).nama);
+    console.log(`Lama Menginap      : ${r.jumlahHari} hari (${minggu} minggu ${sisaHari} hari)`);
+    console.log("Paket Makan        : " + cariPilihan(DAFTAR_PAKET, r.kodePaket).nama);
+    console.log("Layanan Tambahan   : " + cariPilihan(DAFTAR_LAYANAN, r.kodeLayanan).nama);
+    console.log("Membawa Elektronik : " + (r.bawaElektronik ? "Ya" : "Tidak"));
+    console.log("Metode Pembayaran  : " + cariPilihan(DAFTAR_BAYAR, r.kodeBayar).nama);
+    console.log("____________________________________");
+    console.log("Harga Kamar        : " + formatRupiah(rincian.hargaKamar));
+    console.log("Diskon             : " + rincian.diskon + "%");
+    console.log("Potongan Biaya     : " + formatRupiah(rincian.potongan));
+    console.log("Biaya Admin        : " + formatRupiah(rincian.admin));
+    console.log("____________________________________");
+    console.log("Total Pesanan      : " + formatRupiah(rincian.totalBayar));
+}
