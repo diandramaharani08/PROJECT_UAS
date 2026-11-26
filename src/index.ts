@@ -84,3 +84,29 @@ const DAFTAR_BAYAR: Pilihan[] = [
 
 // Array untuk menyimpan seluruh data reservasi
 let dataReservasi: Reservasi[] = [];
+
+//Fungsi fungsi
+// Fungsi untuk memberi format rupiah dengan titik ribuan
+const formatRupiah = (angka: number): string => {
+    // toLocaleString('id-ID') berfungsi untuk memberikan titik ribuan
+    return "Rp" + Math.round(angka).toLocaleString("id-ID");
+    // Math.round() berfungsi untuk membulatkan angka desimal ke bilangan bulat terdekat
+};
+
+// Fungsi untuk mencari pilihan berdasarkan kode memakai find()
+function cariPilihan(daftar: Pilihan[], kode: number): Pilihan {
+    const hasil: Pilihan | undefined = daftar.find((p) => p.kode === kode);
+    // Jika tidak ditemukan, kembalikan pilihan pertama sebagai cadangan
+    return hasil !== undefined ? hasil : daftar[0]; 
+}
+
+// Fungsi untuk menghitung potongan harga berdasarkan jumlah hari menginap
+function hitungPotonganHari(jumlahHari: number): number {
+    if (jumlahHari < 4) {
+        return 0;
+    } else if (jumlahHari >= 4 && jumlahHari <= 8) { // if dengan 2 kondisi (&&)
+        return 200000;
+    } else {
+        return 300000;
+    }
+}
