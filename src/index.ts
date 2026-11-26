@@ -19,3 +19,20 @@ interface Reservasi {
     bawaElektronik: boolean; // true jika tamu membawa alat elektronik
     kodeBayar: number;       // kode metode pembayaran (1-4)
 }
+
+// Struktur data untuk pilihan paket makan, layanan, dan metode bayar
+interface Pilihan {
+    kode: number;  // nomor pilihan
+    nama: string;  // nama pilihan
+    harga: number; // harga pilihan (untuk metode bayar & biaya admin)
+}
+
+// Struktur data untuk hasil perhitungan biaya reservasi
+interface Rincian {
+    tipeKamar: string;  
+    hargaKamar: number; // harga sebelum diskon
+    diskon: number;     
+    potongan: number;   // potongan khusus kartu debit
+    admin: number;      // biaya admin metode pembayaran
+    totalBayar: number; // total yang harus dibayar
+}
