@@ -161,7 +161,7 @@ function hitungRincian(r: Reservasi): Rincian {
     // Menghitung total bayar akhir
     let totalBayar: number = totalHarga;
     totalBayar -= potongan; // dikurangi potongan kartu debit
-    totalBayar -= admin;    // ditambah biaya admin
+    totalBayar += admin;    // ditambah biaya admin
 
     // Mengembalikan seluruh hasil perhitungan
     return { tipeKamar: kamar.nama, hargaKamar, diskon, potongan, admin, totalBayar };
