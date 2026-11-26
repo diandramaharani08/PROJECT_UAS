@@ -54,3 +54,33 @@ const DAFTAR_FASILITAS: Pilihan[] = [
     { kode: 2, nama: "Bintang 4", harga: 250000 },
     { kode: 3, nama: "Bintang 5", harga: 350000 },
 ];
+
+// Batas minimal dan maksimal ID tamu
+const ID_MIN: number = 100000;
+const ID_MAX: number = 999999;
+
+// Daftar paket makan beserta harganya
+const DAFTAR_PAKET: Pilihan[] = [
+    { kode: 1, nama: "Paket sarapan prasmanan", harga: 100000 },
+    { kode: 2, nama: "Paket sarapan standar", harga: 50000 },
+    { kode: 3, nama: "Paket 3x makan prasmanan", harga: 200000 },
+    { kode: 4, nama: "Paket 3x makan standar", harga: 150000 },
+];
+
+// Daftar layanan tambahan beserta harganya
+const DAFTAR_LAYANAN: Pilihan[] = [
+    { kode: 1, nama: "Laundry", harga: 70000 },
+    { kode: 2, nama: "Pembersihan kamar", harga: 100000 },
+    { kode: 3, nama: "Penjemputan di bandara", harga: 50000 },
+];
+
+// Daftar metode pembayaran dan biaya adminnya
+const DAFTAR_BAYAR: Pilihan[] = [
+    { kode: 1, nama: "Kartu debit", harga: 2500 },
+    { kode: 2, nama: "Transfer bank", harga: 5000 },
+    { kode: 3, nama: "Uang tunai", harga: 0 },
+    { kode: 4, nama: "QRIS", harga: 1500 },
+];
+
+// Array untuk menyimpan seluruh data reservasi
+let dataReservasi: Reservasi[] = [];
