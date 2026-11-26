@@ -161,8 +161,51 @@ function hitungRincian(r: Reservasi): Rincian {
     // Menghitung total bayar akhir
     let totalBayar: number = totalHarga;
     totalBayar -= potongan; // dikurangi potongan kartu debit
-    totalBayar += admin;    // ditambah biaya admin
+    totalBayar -= admin;    // ditambah biaya admin
 
     // Mengembalikan seluruh hasil perhitungan
     return { tipeKamar: kamar.nama, hargaKamar, diskon, potongan, admin, totalBayar };
+}
+
+// Fungsi input dengan validasi 
+// Meminta input teks yang tidak boleh kosong 
+function inputTeks(pertanyaan: string): string {
+    let jawaban: string;
+    do {
+        jawaban = tanya(pertanyaan);
+        // Tampilkan pesan jika input kosong
+        if (jawaban === "") {
+            console.log("Input tidak boleh kosong!");
+        }
+    } while (jawaban === ""); // ulangi selama input masih kosong
+    return jawaban;
+}
+
+// Meminta input angka bulat dalam rentang min sampai max
+function inputAngka(pertanyaan: string, min: number, max: number): number {
+    let angka: number = 0;
+    let valid: boolean = false;
+    // Ulangi terus sampai input valid
+    while (!valid) {
+        const teks: string = tanya(pertanyaan);
+        angka = Number(teks); // konversi dari string ke number
+        // Input salah jika kosong, bukan angka, bukan bilangan bulat, atau di luar rentang
+        if (teks === "" || isNaN(angka) || !Number.isInteger(angka) || angka < min || angka > max) {
+            console.log(`Input harus berupa angka bulat dari ${min} sampai ${max}!`);
+        } else {
+            valid = true;
+        }
+    }
+    return angka;
+}
+
+// Meminta jawaban Y/T dan mengubahnya menjadi boolean
+function inputYT(pertanyaan: string): boolean {
+    while (true) {
+        // toUpperCase berfungsi untuk mengubah input menjadi huruf kapital
+        const jawaban: string = (tanya(pertanyaan)).toUpperCase();
+        if (jawaban === "Y") return true;
+        if (jawaban === "T") return false;
+        console.log("Jawab dengan Y atau T saja!");
+    }
 }
